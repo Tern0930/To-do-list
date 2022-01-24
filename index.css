@@ -1,0 +1,214 @@
+html {
+    font-family: 'Karla', sans-serif;
+    height: 100%;
+    background-color: white;
+}
+
+body {
+    min-width: 400px;
+}
+
+.container {
+    margin: 20px auto;
+    font-size: 20px;
+    width: 30%;
+    min-width: 250px;
+}
+
+header {
+    text-align: center;
+    font-weight: 700;
+    font-size: 25px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.input-field {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row-reverse;
+    height: 40px;
+    width: 120%;
+    margin-left: -10%;
+}
+
+#input-task {
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: #944BBB 2px solid;
+    flex-grow: 1;
+    font-size: 20px;
+    line-height: 20px;
+    outline: none;
+    font-family: 'Karla', sans-serif;
+    background-color: inherit;
+    min-width: 200px;
+}
+
+#add-task-button {
+    background: #944BBB;
+    color: whitesmoke;
+    border: 2px solid #944BBB;
+    width: 120px;
+    text-align: center;
+    display: inline-block;
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    border-radius: 0 5px 5px 0;
+    overflow: hidden;
+    min-width: 50px;
+}
+
+#add-task-button:hover {
+    background: blueviolet;
+    transition: 0.5s ease;
+    border-color: blueviolet;
+}
+
+#add-task-button:hover+#input-task {
+    transition: 0.5s ease;
+    border-color: blueviolet;
+}
+
+#add-task-button:active {
+    background: mediumvioletred;
+    border-color: mediumvioletred;
+    transition: 0.2s ease;
+}
+
+#add-task-button:active+#input-task {
+    border-color: mediumvioletred;
+    transition: 0.2s ease;
+}
+
+#task-list {
+    list-style-type: none;
+    margin-left: -5%;
+}
+
+#task-list li {
+    display: flex;
+    /*margin-top: 5px;*/
+    /*margin-bottom: 5px;*/
+    align-content: baseline;
+    border-bottom: 2px dashed #9374a0;
+    padding: 15px 0;
+}
+
+.task {
+    flex-grow: 1;
+}
+
+.task-done {
+    text-decoration: line-through;
+}
+
+.delete-btn {
+    padding: 0;
+    border-radius: 50%;
+    border-color: transparent;
+    overflow: hidden;
+    background: none;
+    margin-right: 5%;
+}
+
+.custom-checkbox, .delete-btn {
+    display: inline-flex;
+    align-items: center;
+}
+
+.delete-btn i {
+    font-size: 2em;
+    color: #C42021;
+}
+
+.delete-btn:hover i{
+    transition: 0.5s ease;
+    color: #6C0E23;
+}
+
+.delete-btn:active i{
+    transition: 0.2s ease;
+    color: #FF220C;
+}
+
+.custom-checkbox {
+    flex-grow: 1;
+}
+
+.custom-checkbox>input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.custom-checkbox>span {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    z-index: 1;
+}
+
+.custom-checkbox>span::before {
+    content: '';
+    display: inline-block;
+    width: 0.8em;
+    height: 0.8em;
+    border: 2px solid #944BBB;
+    border-radius: 0.3em;
+    margin-right: 1em;
+    z-index: 1;
+    transition: 0.5s ease;
+}
+
+.custom-checkbox>input[type="checkbox"]:not(:checked):not(:disabled)+span:hover::before {
+    border-color: blueviolet;
+    box-shadow: 0 0 0 0.2rem rgba(155, 155, 155, 0.25);
+}
+.custom-checkbox>input[type="checkbox"]:not(:checked):not(:disabled)+span:hover::after {
+    opacity: 0.5;
+    border-color: blueviolet;
+}
+
+.custom-checkbox>input[type="checkbox"]:checked:not(:disabled)+span:hover::before {
+    box-shadow: 0 0 0 0.2rem rgba(155, 155, 155, 0.25);
+}
+
+.custom-checkbox>input[type="checkbox"]:checked+span::before {
+    background-color: #944BBB;
+}
+
+.custom-checkbox>input[type="checkbox"]:checked+span::after {
+    border-color: white;
+    opacity: 1;
+    z-index: 10;
+}
+
+.custom-checkbox>input[type="checkbox"]:checked+span::before {
+    background-color: #944BBB;
+}
+
+.custom-checkbox>input[type="checkbox"]:disabled+span::before {
+    background-color: inherit;
+    border-color: #919191;
+}
+
+.custom-checkbox span::after {
+    content: '';
+    height: 0.2em;
+    width: 0.35em;
+    position: absolute;
+    border: 3px solid white;
+    border-top: none;
+    border-right: none;
+    border-radius: 15%;
+    transform: rotate(-50deg);
+    margin-left: 0.215em;
+    margin-bottom: 0.08em;
+    opacity: 0;
+    transition: 0.5s ease;
+}
+
